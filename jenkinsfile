@@ -20,5 +20,16 @@ pipeline {
                 '''
             }
         }
+        stage ('test'){
+            steps {
+                echo'test stage'
+                
+            }
+        }
+    }
+    post{
+        always{
+            junit 'test-results/junit.xml'
+        }
     }
 }
